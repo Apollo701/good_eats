@@ -1,4 +1,8 @@
 en:
+  user:
+    create:
+      success:
+        User Created Successfully
   date:
     formats:
       default:

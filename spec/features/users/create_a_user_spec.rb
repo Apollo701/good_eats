@@ -1,5 +1,17 @@
 feature 'Creating a user' do
   scenario 'success' do
-    visit root_path
+    visit new_user_path
+
+    fill_form(:user, attributes_for(:user).slice(*sign_up_attributes))
+
+    click_on submit(:user)
+
+    expect(page).to have_content t('user.create.success')
+  end
+
+  private
+
+  def sign_up_attributes
+    [:email, :password, :password_confirmation]
   end
 end
