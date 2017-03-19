@@ -3,7 +3,6 @@ feature 'Find top restaurants in your area' do
 
   scenario 'successfully returns the top 10 restaurants' do
     visit root_path
-
     fill_form(:search, { address: address} )
 
     click_button('Find food')
