@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -6,8 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = t('user.create.success')
-      redirect_to @user
+      login(user_params[:email], user_params[:password])
+      redirect_back_or_to(@user, notice: t('user.create.success'))
     else
       render :new
     end

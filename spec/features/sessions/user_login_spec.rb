@@ -5,7 +5,7 @@ feature 'User login' do
 
     fill_form(:user, attributes_for(:user).slice(*login_attributes))
 
-    click_on submit(:user_sessions, :login)
+    click_button('Login')
 
     expect(page).to have_content t('user.login.success')
   end
