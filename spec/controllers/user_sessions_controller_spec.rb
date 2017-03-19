@@ -1,0 +1,2 @@
+describe UserSessionsController do
+end

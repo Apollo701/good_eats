@@ -1,4 +1,9 @@
 en:
+  helpers:
+    submit:
+      user_sessions:
+        login:
+          Login
   simple_form:
     "yes": 'Yes'
     "no": 'No'

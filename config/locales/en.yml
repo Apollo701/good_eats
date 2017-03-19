@@ -1,8 +1,11 @@
 en:
   user:
+    login:
+      success:
+        Logged in successfully
     create:
       success:
-        User Created Successfully
+        User created successfully
   date:
     formats:
       default:
