@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
+gem 'yelp', require: 'yelp'
 gem 'autoprefixer-rails'
 gem 'delayed_job_active_record'
 gem 'flutie'
