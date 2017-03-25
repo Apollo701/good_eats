@@ -1,7 +1,7 @@
 class Restaurant
   attr_accessor :term, :location
   HIGHEST_RATED = 2
-  RADIUS = 5
+  RADIUS = 100
 
   class << self
     def search_client
@@ -11,14 +11,18 @@ class Restaurant
     delegate :search, to: :search_client
   end
 
-  def search(term, location)
-    @term = term
+  def search(location, term = '')
     @location = location
-    shops = client.search(location, options.merge(term: term))
-    sanitize(shops)
+    @term = term
+    find_shops
   end
 
   private
+
+  def find_shops
+    shops = client.search(location, options.merge(term: term))
+    sanitize(shops)
+  end
 
   def client
     Yelp.client
