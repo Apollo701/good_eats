@@ -36,6 +36,6 @@ class Restaurant
   end
 
   def sanitize(shops)
-    shops.businesses.map(&:name)
+    shops.businesses
   end
 end
