@@ -10,6 +10,7 @@ describe Restaurant do
       expect(Yelp.client).to receive(:search)
         .with(location, options.merge(term: term))
         .and_return(shops)
+
       Restaurant.search(location, term)
     end
   end

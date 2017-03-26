@@ -1,7 +1,7 @@
 class Restaurant
   attr_accessor :term, :location
   HIGHEST_RATED = 2
-  RADIUS = 100
+  RADIUS = 2000
 
   class << self
     def search_client
@@ -36,6 +36,6 @@ class Restaurant
   end
 
   def sanitize(shops)
-    shops.businesses
+    shops.businesses.map(&:name)
   end
 end

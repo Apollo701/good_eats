@@ -1,1 +1,5 @@
-<%= simple_form_for :restaurant_search %>
+<%= simple_form_for :restaurant, url: restaurant_path do |f| %>
+  <%= f.input :location %>
+  <%= f.input :term, required: false %>
+  <%= f.button :submit, 'Find Restaurants' %>
+<% end %>
