@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    flash[:success] = "Your delicious 10 results around #{location}"
     redirect_to root_path(results: Restaurant.search(location, term))
   end
 

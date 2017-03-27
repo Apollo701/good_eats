@@ -1,9 +1,16 @@
 describe Restaurant do
   describe '.search' do
     let(:location) { 'San Francisco' }
-    let(:options) { { sort: 2, radius_filter: 100 } }
+    let(:highest_rated) { Restaurant::HIGHEST_RATED }
+    let(:meters) { Restaurant::RADIUS }
+    let(:limit) { Restaurant::LIMIT }
+    let(:options) do
+      { sort: highest_rated, radius_filter: meters, limit: limit}
+    end
     let(:term) { 'sushi' }
-    let(:businesses) { %w(Octavia Alexanders Nopa)}
+    let(:businesses) do
+      [ double(name: 'Octavia'), double(name: 'Alexanders') ]
+    end
     let(:shops) { double(:shops , businesses: businesses) }
 
     it 'locates restaurants' do

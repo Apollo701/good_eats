@@ -2,6 +2,7 @@ class Restaurant
   attr_accessor :term, :location
   HIGHEST_RATED = 2
   RADIUS = 2000
+  LIMIT = 10
 
   class << self
     def search_client
@@ -31,7 +32,8 @@ class Restaurant
   def options
     {
       sort: HIGHEST_RATED,
-      radius_filter: RADIUS
+      radius_filter: RADIUS,
+      limit: LIMIT
     }
   end
 
