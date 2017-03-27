@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    if location.match location_regex
+    if location.present?
       flash[:success] = "Your delicious 10 results around #{location}"
       redirect_to root_path(results: Restaurant.search(location, term))
     else
@@ -17,10 +17,6 @@ class RestaurantsController < ApplicationController
   end
 
   private
-
-  def location_regex
-    /\A[a-z]+\Z/i
-  end
 
   def location
     restaurant_params[:location]

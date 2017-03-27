@@ -18,7 +18,7 @@ describe Restaurant do
         .with(location, options.merge(term: term))
         .and_return(shops)
 
-      Restaurant.search(location)
+      Restaurant.search(location, term)
     end
   end
 end
