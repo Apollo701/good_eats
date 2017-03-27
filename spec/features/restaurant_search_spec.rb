@@ -16,6 +16,6 @@ feature 'Find top restaurants in your area' do
     click_button('Find Restaurants')
 
     expect(page).to have_content "Your delicious 10 results around #{location}"
-    expect(page).to have_content businesses.map(&:name).join(' ')
+    expect(page).to have_content business_names
   end
 end
