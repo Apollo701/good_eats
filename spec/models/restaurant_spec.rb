@@ -7,7 +7,7 @@ describe Restaurant do
     let(:options) do
       { sort: highest_rated, radius_filter: meters, limit: limit}
     end
-    let(:term) { 'sushi' }
+    let(:term) { 'food' }
     let(:businesses) do
       [ double(name: 'Octavia'), double(name: 'Alexanders') ]
     end
@@ -18,7 +18,7 @@ describe Restaurant do
         .with(location, options.merge(term: term))
         .and_return(shops)
 
-      Restaurant.search(location, term)
+      Restaurant.search(location)
     end
   end
 end

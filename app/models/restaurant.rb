@@ -1,8 +1,12 @@
 class Restaurant
+  include ActiveModel::Model
   attr_accessor :term, :location
   HIGHEST_RATED = 2
   RADIUS = 2000
   LIMIT = 10
+
+  validates :location, allow_blank: false, presence: true
+  validates :term, presence: true, allow_blank: false
 
   class << self
     def search_client
@@ -12,9 +16,9 @@ class Restaurant
     delegate :search, to: :search_client
   end
 
-  def search(location, term = '')
+  def search(location, term)
     @location = location
-    @term = term
+    @term = term.empty? ? 'food' : term
     find_shops
   end
 
